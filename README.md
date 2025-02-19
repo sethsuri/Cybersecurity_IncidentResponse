@@ -5,7 +5,65 @@ This repository documents my work on various cybersecurity incident response sce
 ## Contents
 
 * **CISA Advisory Response:** Responding to the CISA Log4j advisory.
-    * [CISA_Advisory_Response/README.md](https://github.com/sethsuri/Cybersecurity_IncidentResponse/blob/main/CISA_Advisory_Response/Log4j_Advisory_Email.txt)
+# CISA Advisory Response
+
+This folder contains my response to the CISA Log4j advisory.
+
+## Files
+
+* `Log4j_Advisory_Email.txt`: The advisory email sent to affected teams.
+
+## Description
+
+This email demonstrates my ability to communicate critical vulnerability information to affected teams, providing context and remediation steps.
+
+Subject: URGENT: Critical Log4j Vulnerability (CVE-2021-44228) - Immediate Action Required
+
+Dear [Team Lead Name] and Team,
+
+This is an urgent notification regarding a critical zero-day vulnerability (CVE-2021-44228) in Apache Log4j, a widely used logging library. The Cybersecurity and Infrastructure Security Agency (CISA) has issued an advisory highlighting the severity of this vulnerability, which allows for remote code execution.
+
+**Impact:**
+
+This vulnerability poses a significant risk to our systems, as it could allow attackers to gain unauthorized access and control. Given the potential for widespread exploitation, immediate action is crucial.
+
+**Affected Systems (Based on Infrastructure List):**
+
+* **Product Development Staging Environment (Product Development Team, John Doe):** This environment is confirmed to be running Log4j.
+
+**Required Actions:**
+
+1.  **Immediate Patching/Mitigation:**
+    * The Product Development team must immediately update Log4j to the latest patched version (2.17.0 or later).
+    * If patching is not immediately feasible, implement the mitigation measures recommended by Apache and CISA, which involve setting the `log4j2.formatMsgNoLookups` system property to `true` or removing the `JndiLookup` class from the classpath.
+2.  **Vulnerability Scanning:**
+    * Conduct thorough vulnerability scans of all systems within your team's responsibility to identify any other potential instances of Log4j.
+3.  **Incident Response Planning:**
+    * Review and update your incident response plans to address potential exploitation of this vulnerability.
+4.  **Continuous Monitoring:**
+    * Implement continuous monitoring of system logs for any suspicious activity related to Log4j.
+5.  **Communication:**
+    * Please reply to this email to confirm that you have received this notification and are taking the necessary steps to mitigate the vulnerability. Please provide a timeline for your mitigation efforts.
+6.  **Coordination:**
+    * Please coordinate with the central security team to ensure that all response actions are aligned.
+
+**Resources:**
+
+* CISA Log4j Advisory: [Link to CISA Log4j Advisory]
+* Apache Log4j Security Vulnerabilities: [Link to Apache Log4j Security Page]
+
+**Importance of Timely Action:**
+
+The Log4j vulnerability is being actively exploited in the wild. Prompt action is essential to protect our systems from potential attacks.
+
+If you have any questions or require assistance, please contact the Cybersecurity Incident Response Team immediately at [Incident Response Team Contact Information].
+
+Thank you for your immediate attention to this critical matter.
+
+Sincerely,
+
+AIG Cybersecurity Team
+
 * **Log4j Incident:** Handling a simulated Log4j exploitation and ransomware incident.
     * [Log4j_Incident/README.md](Log4j_Incident/README.md)
 * **BruteForce Script:** A Python script to brute-force zip file passwords.
