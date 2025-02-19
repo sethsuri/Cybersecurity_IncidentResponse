@@ -64,10 +64,97 @@ Sincerely,
 
 AIG Cybersecurity Team
 
-* **Log4j Incident:** Handling a simulated Log4j exploitation and ransomware incident.
-    * [Log4j_Incident/README.md](Log4j_Incident/README.md)
-* **BruteForce Script:** A Python script to brute-force zip file passwords.
-    * [BruteForce_Script/README.md](BruteForce_Script/README.md)
+
+
+# Log4j Incident
+
+This folder documents the handling of a simulated Log4j exploitation and ransomware incident.
+
+## Files
+
+* `Incident_Report.md`: A report detailing the incident, response actions, and lessons learned.
+
+Log4j Ransomware Incident Report
+
+## Incident Summary
+
+* **Vulnerability:** CVE-2021-44228 (Log4j)
+* **Attack Vector:** Remote code execution via Log4j vulnerability.
+* **Impact:** Partial ransomware encryption of one zip file.
+* **Response:** Incident Detection & Response team contained the attack, preventing full encryption.
+
+## Response Actions
+
+1.  **Vulnerability Patching:** Immediate patching of Log4j.
+2.  **Incident Containment:** Network isolation of the affected server.
+3.  **Ransomware Analysis:** Analysis of the ransomware payload.
+4.  **Decryption Attempt:** Brute-force decryption of the encrypted zip file.
+5.  **Incident Reporting:** Reporting to relevant stakeholders.
+
+## Lessons Learned
+
+* Importance of timely patching.
+* Need for robust incident response plans.
+* Value of brute-forcing techniques in specific scenarios.
+
+## Description
+
+This report outlines the steps taken to contain and recover from a simulated ransomware attack resulting from a Log4j vulnerability exploitation. It highlights incident response skills and decision-making in a high-pressure scenario.
+
+# Brute-Force Script
+
+This folder contains a Python script to brute-force zip file passwords.
+
+## Files
+
+* `bruteforce_zip.py`: The Python script.
+* `rockyou_subset.txt`: A subset of the Rockyou password list.
+* `encrypted_file.zip` (Optional): An encrypted zip file for testing.
+
+## Description
+
+The `bruteforce_zip.py` script demonstrates a practical approach to password cracking using a wordlist. It iterates through the password list, attempting to decrypt the zip file until the correct password is found.
+
+import zipfile
+
+def bruteforce_zip(zip_file_path, password_list_path):
+    """
+    Brute-forces a zip file password using a provided password list.
+
+    Args:
+        zip_file_path (str): The path to the encrypted zip file.
+        password_list_path (str): The path to the password list file.
+
+    Returns:
+        str: The decrypted password if found, otherwise None.
+    """
+    try:
+        with open(password_list_path, 'r', encoding='latin-1') as password_file:
+            for password in password_file:
+                password = password.strip()  # Remove newline characters
+                try:
+                    with zipfile.ZipFile(zip_file_path) as zf:
+                        zf.extractall(pwd=password.encode('utf-8'))
+                    return password  # Password found!
+                except RuntimeError:
+                    # Incorrect password, try the next one
+                    pass
+                except zipfile.BadZipFile:
+                    return "Bad Zip File"
+        return None  # Password not found
+    except FileNotFoundError:
+        return "File Not Found"
+
+# Example usage (replace with your file paths)
+zip_file_path = "encrypted_file.zip"  # Replace with the actual zip file path
+password_list_path = "rockyou_subset.txt"  # Replace with your password list path
+
+decrypted_password = bruteforce_zip(zip_file_path, password_list_path)
+
+if decrypted_password:
+    print(f"Password found: {decrypted_password}")
+else:
+    print("Password not found in the provided list.")
 
 ## Key Demonstrations
 
