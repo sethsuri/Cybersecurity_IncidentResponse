@@ -5,7 +5,7 @@ This repository documents my work on various cybersecurity incident response sce
 ## Contents
 
 * **CISA Advisory Response:** Responding to the CISA Log4j advisory.
-    * [CISA_Advisory_Response/README.md](https://github.com/sethsuri/Cybersecurity_IncidentResponse/tree/main/CISA_Advisory_Response)
+    * [CISA_Advisory_Response/README.md](https://github.com/sethsuri/Cybersecurity_IncidentResponse/blob/main/CISA_Advisory_Response/Log4j_Advisory_Email.txt)
 * **Log4j Incident:** Handling a simulated Log4j exploitation and ransomware incident.
     * [Log4j_Incident/README.md](Log4j_Incident/README.md)
 * **BruteForce Script:** A Python script to brute-force zip file passwords.
